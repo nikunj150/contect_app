@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ContactProvider with ChangeNotifier{
 
   int stepIndex=0;
+  String? imagePath;
 
   void nextpage()
   {
@@ -19,6 +20,11 @@ class ContactProvider with ChangeNotifier{
     {
       stepIndex--;
     }
+    notifyListeners();
+  }
+  void setimagepath(String? path)
+  {
+    imagePath = path;
     notifyListeners();
   }
 
