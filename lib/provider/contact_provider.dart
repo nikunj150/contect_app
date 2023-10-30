@@ -13,7 +13,6 @@ class ContactProvider with ChangeNotifier{
       }
     notifyListeners();
   }
-
   void backpage()
   {
     if(stepIndex>0)
@@ -22,7 +21,7 @@ class ContactProvider with ChangeNotifier{
     }
     notifyListeners();
   }
-  void setimagepath(String? path)
+  void imagepath(String? path)
   {
     imagePath = path;
     notifyListeners();

@@ -54,7 +54,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                                   final PickedFile = await ImagePicker()
                                       .pickImage(source: ImageSource.gallery);
                                   if (PickedFile != null) {
-                                    value.setimagepath(PickedFile.path);
+                                    value.imagepath(PickedFile.path);
                                   }
                                 },
                                 icon: Icon(Icons.image)),
@@ -62,7 +62,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                         ],
                       ),
                     ),
-                    Step(
+                    const Step(
                         title: Text("Name "),
                         content: TextField(
                           decoration: InputDecoration(
@@ -70,7 +70,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                           ),
                         )),
                     Step(
-                        title: Text("Phone Number "),
+                        title: Text("Phone Number"),
                         content: TextField(
                           decoration: InputDecoration(
                             hintText: "Enter Your Number",
@@ -91,7 +91,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Submit")),
+                  child: const Text("Submit")),
             ],
           ),
         ),
