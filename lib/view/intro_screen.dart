@@ -14,29 +14,30 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: IntroductionScreen(
-           pages: [
-             PageViewModel(
-               title: "Lorem Ipsum ",
-               bodyWidget: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-               image: Image.asset("assets/images/intro1.jpg"),
-             ),
-             PageViewModel(
-                 title: "simply dummy",
+        body: Center(
+          child: IntroductionScreen(
+             pages: [
+               PageViewModel(
+                 title: "Lorem Ipsum",
                  bodyWidget: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
-                 // image: Image.asset("assets/images/intro1.jpg"),
-             ),
-           ],
-          showDoneButton: true,
-          onDone: () {
-             Shrhelper shrhelper = Shrhelper();
-             shrhelper.setintrostatus();
-            Navigator.pushReplacementNamed(context, "home");
-          },
-          done: Text("Next"),
-          showNextButton: true,
-
-          next: Text("Done"),
+                 image: Image.asset("assets/images/i1.png"),
+               ),
+               PageViewModel(
+                   title: "simply dummy",
+                   bodyWidget: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
+                   image: Image.asset("assets/images/i2.png"),
+               ),
+             ],
+            showDoneButton: true,
+            onDone: () {
+               Shrhelper shr = Shrhelper();
+               shr.setintrostatus();
+              Navigator.pushReplacementNamed(context, "home");
+            },
+            done: Text("Done"),
+            showNextButton: true,
+            next: Text("Next"),
+          ),
         ),
       ),
     );

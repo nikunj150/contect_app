@@ -14,4 +14,8 @@ class Shrhelper{
     bool? status = await shr.getBool("intro");
     return status;
   }
+  void setTheme(bool isTheme)async
+  {
+    SharedPreferences isTheme = await SharedPreferences.getInstance();
+  }
 }

@@ -7,23 +7,26 @@ class SpleshScreen extends StatefulWidget {
   @override
   State<SpleshScreen> createState() => _SpleshScreenState();
 }
+
 class _SpleshScreenState extends State<SpleshScreen> {
+  bool?status;
   @override
   void initState() {
-    createdata();
     super.initState();
+    createdata();
   }
-  void createdata()async
-  {
-      Shrhelper status = Shrhelper();
-      await status.getintrostatus();
+
+  void createdata() async {
+    Shrhelper shr = Shrhelper();
+    await shr.getintrostatus();
   }
+
   @override
   Widget build(BuildContext context) {
     Future.delayed(
       Duration(seconds: 3),
       () {
-        Navigator.pushReplacementNamed(context, 'introScreen');
+          Navigator.pushReplacementNamed(context,status==true || status==null?'introScreen':'home');
       },
     );
     return SafeArea(
