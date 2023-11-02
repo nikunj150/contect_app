@@ -1,3 +1,4 @@
+import 'package:contect_app/provider/contact_provider.dart';
 import 'package:contect_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,8 +11,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  ContactProvider? providerW;
+  ContactProvider? providerR;
   @override
+
   Widget build(BuildContext context) {
+
+    providerR =context.read<ContactProvider>();
+    providerW =context.watch<ContactProvider>();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -25,13 +32,44 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
-          title: Text("Contact List"),
+          title: Text("Contact List"),/* providerW!.contactList.length*/
         ),
-        body: Column(
-          children: [
+        body: ListView.builder(itemCount:1,itemBuilder: (context, index) {
 
-          ],
-        ),
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: MediaQuery.of(context).size.height*0.12,
+              width: double.infinity,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.grey.shade300),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Colors.grey,
+                    ),
+                    SizedBox(width: 20),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Name"),
+                        SizedBox(height: 9),
+                        Text("number"),
+                      ],
+                    ),
+                    Spacer( ),
+                    IconButton(onPressed: () {
+
+                    }, icon: Icon(Icons.delete_outline,color: Colors.red,))
+                  ],
+                ),
+              ),
+            ),
+          );
+
+        },),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
           Navigator.pushNamed(context,'detailAdd');

@@ -18,7 +18,7 @@ class _SpleshScreenState extends State<SpleshScreen> {
 
   void createdata() async {
     Shrhelper shr = Shrhelper();
-    await shr.getintrostatus();
+    status = await shr.getintrostatus();
   }
 
   @override
@@ -26,7 +26,7 @@ class _SpleshScreenState extends State<SpleshScreen> {
     Future.delayed(
       Duration(seconds: 3),
       () {
-          Navigator.pushReplacementNamed(context,status==true || status==null?'introScreen':'home');
+          Navigator.pushReplacementNamed(context,status==false || status==null?'introScreen':'home');
       },
     );
     return SafeArea(

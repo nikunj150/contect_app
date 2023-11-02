@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../model/model_class.dart';
+
 class ContactProvider with ChangeNotifier{
 
   int stepIndex=0;
   String? imagePath;
 
+  List<Contactmodel>contactList=[];
+
   void nextpage()
   {
-    if(stepIndex<3)
+    if(stepIndex<4)
       {
         stepIndex++;
       }
@@ -26,9 +30,10 @@ class ContactProvider with ChangeNotifier{
     imagePath = path;
     notifyListeners();
   }
-
-
-
-
+  void storedata(Contactmodel cm)
+  {
+    contactList.add(cm);
+    notifyListeners();
+  }
 
 }
