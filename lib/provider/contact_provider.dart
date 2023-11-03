@@ -7,6 +7,10 @@ class ContactProvider with ChangeNotifier{
   int stepIndex=0;
   String? imagePath;
 
+  List<Color> colorList=[
+    Colors.white,Colors.black,...Colors.primaries
+  ];
+
   List<Contactmodel>contactList=[];
 
   void nextpage()
@@ -34,6 +38,10 @@ class ContactProvider with ChangeNotifier{
   {
     contactList.add(cm);
     notifyListeners();
+  }
+  void reset()
+  {
+    stepIndex=0;
   }
 
 }

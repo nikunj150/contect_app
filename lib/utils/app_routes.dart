@@ -1,6 +1,7 @@
 
 
 import 'package:contect_app/view/add_contact.dart';
+import 'package:contect_app/view/contact_info_screen.dart';
 import 'package:contect_app/view/home_screen.dart';
 import 'package:contect_app/view/intro_screen.dart';
 import 'package:contect_app/view/splesh_screen.dart';
@@ -12,4 +13,5 @@ Map<String,WidgetBuilder> app_routes={
   'introScreen':(context) => IntroScreen(),
   'home':(context) => HomeScreen(),
   'detailAdd':(context) => ContactAddScreen(),
+  'info':(context) => InfoScreen(),
 };

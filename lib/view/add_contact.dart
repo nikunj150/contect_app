@@ -46,7 +46,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                     content: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircleAvatar(
+                        (providerw!.imagePath==null)?Image.asset("assets/images/user.png",height: 100,):CircleAvatar(
                           radius: 50,
                           backgroundColor: Colors.grey,
                           backgroundImage: providerw!.imagePath != null
@@ -101,13 +101,17 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                       onPressed: () {
                         Contactmodel cm = Contactmodel(
                           name:txtName.text,
+                         phone: txtNo.text,
                          email: txtEmail.text,
                           image: providerw!.imagePath,
                         );
+                        providerw!.storedata(cm);
 
-                        Navigator.pop(context);
+                        providerw!.reset();
+
+                        Navigator.pop(context,);
                       },
-                      child: Text("Submit"),
+                      child: Text("save"),
                     ),
                   ),
                 ],
