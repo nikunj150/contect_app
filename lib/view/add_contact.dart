@@ -94,7 +94,8 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                         decoration: InputDecoration(
                           hintText: "Enter Your Gmail ID",
                         ),
-                      )),
+                      ),
+                  ),
                   Step(
                     title: Text("submit"),
                     content: ElevatedButton(

@@ -44,4 +44,11 @@ class ContactProvider with ChangeNotifier{
     stepIndex=0;
   }
 
+  void deletedata(int index)
+  {
+    contactList.removeAt(index);
+  }
+
+
+
 }
