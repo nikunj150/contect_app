@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:contect_app/model/model_class.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +24,14 @@ class _InfoScreenState extends State<InfoScreen> {
               child: Column(
                 children: [
                   SizedBox(height: 50),
+                  (c1.image==null)?CircleAvatar(
+                    radius: 89,
+                    child: Text("${c1.name?.substring(0, 1).toUpperCase()}",style: TextStyle(fontSize: 40),),
+                  ):
                   CircleAvatar(
                   radius: 89,
                     backgroundColor: Colors.blue,
+                    backgroundImage:FileImage(File("${c1.image}")),
               ),
                   SizedBox(height: 20,),
                   Text("${c1.name}",style: TextStyle(fontSize: 30),),
@@ -89,26 +96,33 @@ class _InfoScreenState extends State<InfoScreen> {
                               Spacer( ),
                               IconButton(onPressed: () {
 
-                              }, icon: Icon(Icons.edit,color: Colors.white,)),
+                              }, icon: Icon(Icons.edit)),
                               IconButton(onPressed: () {
 
-                              }, icon:Icon(Icons.star_border,color: Colors.white,))
+                              }, icon:Icon(Icons.star_border))
                             ],
                           ),
                           SizedBox(height: 40),
                           Row(
                             children: [
-                              Icon(Icons.phone,color: Colors.white),
+                              Icon(Icons.phone),
                               SizedBox(width: 10),
                               Text("${c1.phone}",style: TextStyle(fontSize: 21),),
                               Spacer( ),
-                              Icon(Icons.videocam,color: Colors.white,),
+                              Icon(Icons.videocam),
                               SizedBox(width: 20),
-                              Icon(Icons.sms_outlined,color: Colors.white,),
+                              Icon(Icons.sms_outlined),
                             ],
                           ),
                           SizedBox(height: 30),
                           Text("${c1.email}",style: TextStyle(fontSize: 20),),
+                          Spacer( ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: IconButton(onPressed: () {
+
+                            }, icon: Icon(Icons.delete_outline,color: Colors.red,)),
+                          )
                         ],
                       ),
                     ),

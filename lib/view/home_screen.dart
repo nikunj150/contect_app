@@ -78,9 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         IconButton(
                             onPressed: () {},
                             icon: Icon(
-                              Icons.delete_outline,
-                              color: Colors.red,
-                            ))
+                              Icons.call,
+                            )),
                       ],
                     ),
                   ),
