@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:contect_app/model/model_class.dart';
+import 'package:contect_app/view/widget/alert_dialogue.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
@@ -41,11 +43,17 @@ class _InfoScreenState extends State<InfoScreen> {
                     children: [
                      Column(
                        children: [
-                         Container(
-                           height: 50,
-                           width: 50,
-                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.green),
-                           child: Icon(Icons.call,color: Colors.white,),
+                         InkWell(
+                           onTap: () async {
+                             Uri uri =Uri.parse("tel:+91${c1.phone}");
+                            await launchUrl(uri);
+                           },
+                           child: Container(
+                             height: 50,
+                             width: 50,
+                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.green),
+                             child: Icon(Icons.call,color: Colors.white,),
+                           ),
                          ),
                          SizedBox(height: 10),
                          Text("Call"),
@@ -53,11 +61,17 @@ class _InfoScreenState extends State<InfoScreen> {
                      ),
                      Column(
                        children: [
-                         Container(
-                           height: 50,
-                           width: 50,
-                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.blue),
-                           child: Icon(Icons.sms_outlined,color: Colors.white,),
+                         InkWell(
+                           onTap: () async {
+                             Uri uri =Uri.parse("sms:+91${c1.phone}");
+                             await launchUrl(uri);
+                           },
+                           child: Container(
+                             height: 50,
+                             width: 50,
+                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.blue),
+                             child: Icon(Icons.sms_outlined,color: Colors.white,),
+                           ),
                          ),
                          SizedBox(height: 10),
                          Text("Text"),
@@ -95,7 +109,7 @@ class _InfoScreenState extends State<InfoScreen> {
                               Text("Contact info",style: TextStyle(fontSize: 19),),
                               Spacer( ),
                               IconButton(onPressed: () {
-
+                                showWidget(context, c1);
                               }, icon: Icon(Icons.edit)),
                               IconButton(onPressed: () {
 
@@ -120,6 +134,7 @@ class _InfoScreenState extends State<InfoScreen> {
                           Align(
                             alignment: Alignment.center,
                             child: IconButton(onPressed: () {
+
 
                             }, icon: Icon(Icons.delete_outline,color: Colors.red,)),
                           )

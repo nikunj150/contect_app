@@ -90,6 +90,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                   Step(
                       title: Text("email Address "),
                       content: TextField(
+                        keyboardType: TextInputType.emailAddress,
                         controller: txtEmail,
                         decoration: InputDecoration(
                           hintText: "Enter Your Gmail ID",
@@ -107,7 +108,7 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                           image: providerw!.imagePath,
                         );
                         providerw!.storedata(cm);
-
+                        providerr!.imagePath="";
                         providerw!.reset();
 
                         Navigator.pop(context,);

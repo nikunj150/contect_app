@@ -6,6 +6,8 @@ class ContactProvider with ChangeNotifier{
 
   int stepIndex=0;
   String? imagePath;
+  int? infoIndex;
+
 
   List<Color> colorList=[
     Colors.white,Colors.black,...Colors.primaries
@@ -44,11 +46,22 @@ class ContactProvider with ChangeNotifier{
     stepIndex=0;
   }
 
-  void deletedata(int index)
+  void storeIndex(int index)
   {
-    contactList.removeAt(index);
+    infoIndex = index;
+    notifyListeners();
+  }
+
+  void deletedata()
+  {
+
   }
 
 
+  void updateData(Contactmodel c1)
+  {
+    contactList[infoIndex!]=c1;
+    notifyListeners();
+  }
 
 }
