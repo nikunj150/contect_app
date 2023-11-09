@@ -101,14 +101,15 @@ class _ContactAddScreenState extends State<ContactAddScreen> {
                     title: Text("submit"),
                     content: ElevatedButton(
                       onPressed: () {
-                        Contactmodel cm = Contactmodel(
+                        Contactmodel /*cm*/cm = Contactmodel(
                           name:txtName.text,
                          phone: txtNo.text,
                          email: txtEmail.text,
                           image: providerw!.imagePath,
                         );
                         providerw!.storedata(cm);
-                        providerr!.imagePath="";
+                        providerr!.imagepath(null);
+
                         providerw!.reset();
 
                         Navigator.pop(context,);

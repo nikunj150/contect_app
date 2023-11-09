@@ -1,47 +1,32 @@
 import 'dart:io';
 
-import 'package:contect_app/provider/contact_provider.dart';
-import 'package:contect_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import '../provider/contact_provider.dart';
+
+class PrivateScreen extends StatefulWidget {
+  const PrivateScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<PrivateScreen> createState() => _PrivateScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  ContactProvider? providerw;
-  ContactProvider? providerr;
-
+class _PrivateScreenState extends State<PrivateScreen> {
   @override
+  ContactProvider? providerr;
+  ContactProvider? providerw;
+
   Widget build(BuildContext context) {
     providerr = context.read<ContactProvider>();
     providerw = context.watch<ContactProvider>();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, 'privateContact');
-              },
-              icon: Icon(Icons.remove_red_eye_outlined)),
-          actions: [
-            Consumer<ThemeProvider>(
-              builder: (context, value1, child) => Switch(
-                value: value1.isLight,
-                onChanged: (value) {
-                  value1.changeTheme();
-                },
-              ),
-            ),
-          ],
-          title: Text("Contact List"),
+          title: Text("Private Contact"),
         ),
         body: ListView.builder(
-          itemCount: providerw!.contactList.length,
+          itemCount: providerw!.privateContactList.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -97,12 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             );
           },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, 'detailAdd');
-          },
-          child: Icon(Icons.add),
         ),
       ),
     );
