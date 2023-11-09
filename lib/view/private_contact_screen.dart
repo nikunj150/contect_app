@@ -34,7 +34,7 @@ class _PrivateScreenState extends State<PrivateScreen> {
                 onTap: () {
                   providerr!.storeIndex(index);
                   Navigator.pushNamed(context, 'info',
-                      arguments: providerr!.contactList[index]);
+                      arguments: providerr!.privateContactList[index]);
                 },
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.12,
@@ -47,11 +47,11 @@ class _PrivateScreenState extends State<PrivateScreen> {
                     child: Row(
                       children: [
                         /*Text("${providerr!.contactList[index].name!.substring(0, 1)}")*/
-                        (providerw!.contactList[index].image == null)
+                        (providerw!.privateContactList[index].image == null)
                             ? CircleAvatar(
                                 radius: 35,
                                 child: Text(
-                                  "${providerw!.contactList[index].name?.substring(0, 1).toUpperCase()}",
+                                  "${providerw!.privateContactList[index].name?.substring(0, 1).toUpperCase()}",
                                   style: TextStyle(fontSize: 25),
                                 ),
                               )
@@ -59,14 +59,14 @@ class _PrivateScreenState extends State<PrivateScreen> {
                                 radius: 35,
                                 backgroundColor: Colors.grey,
                                 backgroundImage: FileImage(File(
-                                    "${providerw!.contactList[index].image}"))),
+                                    "${providerw!.privateContactList[index].image}"))),
                         SizedBox(width: 20),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("${providerr!.contactList[index].name}"),
+                            Text("${providerr!.privateContactList[index].name}"),
                             SizedBox(height: 9),
-                            Text("${providerr!.contactList[index].phone}"),
+                            Text("${providerr!.privateContactList[index].phone}"),
                           ],
                         ),
                         Spacer(),

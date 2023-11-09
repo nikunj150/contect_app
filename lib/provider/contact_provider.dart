@@ -49,6 +49,7 @@ class ContactProvider with ChangeNotifier{
   void privatedata(Contactmodel c1)
   {
     privateContactList.add(c1);
+    contactList.removeAt(infoIndex!);
     notifyListeners();
   }
 

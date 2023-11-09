@@ -25,18 +25,18 @@ void showWidget(BuildContext context, Contactmodel c1) {
           actions: [
             Align(
               alignment: Alignment.center,
-              child: c1.image == null
+              child: c1.image != null || providerr!.imagePath != null
                   ? CircleAvatar(
-                      radius: 40,
-                      child: Text(
-                        "${c1.name?.substring(0, 1).toUpperCase()}",
-                        style: TextStyle(fontSize: 35),
-                      ),
-                    )
-                  : CircleAvatar(
-                      radius: 40,
-                      backgroundImage: FileImage(File("${c1.image}")),
-                    ),
+                radius: 40,
+                backgroundImage: FileImage(File("${c1.image}")),
+              )
+                  :  CircleAvatar(
+                radius: 40,
+                child: Text(
+                  "${c1.name?.substring(0, 1).toUpperCase()}",
+                  style: TextStyle(fontSize: 35),
+                ),
+              ),
             ),
             SizedBox(height: 10),
             Align(
