@@ -9,6 +9,7 @@ class ContactProvider with ChangeNotifier{
   int stepIndex=0;
   String? imagePath;
   int? infoIndex;
+  bool? biomatrix=false;
 
 
   // List<Color> colorList=[
@@ -81,6 +82,7 @@ class ContactProvider with ChangeNotifier{
   void checkBiomatrixstatus()
   {
     LocalAuthentication auth = LocalAuthentication();
+
   }
 
 

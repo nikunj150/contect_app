@@ -109,7 +109,7 @@ class _InfoScreenState extends State<InfoScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text("Text"),
                         ],
                       ),
